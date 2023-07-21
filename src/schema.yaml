@@ -1,0 +1,59 @@
+type: array
+items:
+  type: object
+  additionalProperties: false
+  required:
+    - handles
+    - type
+    - auth
+    - maintainer
+    - inviteOnly
+    - paid
+    - links
+  properties:
+    handles:
+      type: array
+      items:
+        type: string
+        format: hostname
+    description:
+      type: string
+    type:
+      type: string
+      enum:
+        - dns
+        - http
+    auth:
+      type: string
+      enum:
+        - none
+        - password
+        - 'external:discord'
+        - 'external:matrix'
+    maintainer:
+      type: object
+      additionalProperties: false
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        did:
+          type: string
+        web:
+          type: string
+          format: uri
+    inviteOnly:
+      type: boolean
+    paid:
+      type: boolean
+    links:
+      type: object
+      additionalProperties: false
+      properties:
+        web:
+          type: string
+          format: uri
+        git:
+          type: string
+          format: uri
