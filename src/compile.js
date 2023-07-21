@@ -78,5 +78,10 @@ output = output.replace(
   table(data.filter((i) => i.unofficial), colsUo),
 );
 
+output = output.replace(
+  "@@LAST_UPDATE@@",
+  new Date().toISOString(),
+);
+
 await Deno.writeTextFile("./README.md", output);
 console.log("Done, README.md written");

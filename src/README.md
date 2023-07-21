@@ -7,6 +7,8 @@ Feel free to send a PR to add your service!
 * [GitHub Repository](https://github.com/atscan/atproto-custom-handles)
 * [Edit on GitHub](https://github.com/atscan/atproto-custom-handles/edit/main/src/data.yaml)
 
+Last update:`@@LAST_UPDATE@@`
+
 ## Handle Providers
 
 ### Official
