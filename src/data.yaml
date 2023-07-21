@@ -1,0 +1,106 @@
+- handles:
+    - bsky.social
+  type: http
+  auth: password
+  inviteOnly: true
+  isPds: true
+  paid: false
+  maintainer:
+    name: Bluesky PBLLC
+    did: did:plc:z72i7hdynmk6r22z27h6tvur
+  links:
+    web: https://blueskyweb.xyz/
+    git: https://github.com/bluesky-social
+
+- handles:
+    - is-extremely.gay
+    - the-gay.cat
+    - woke.cat
+    - lesbian.cat
+  type: dns
+  auth: none
+  inviteOnly: false
+  paid: false
+  maintainer:
+    name: "@domi.zip"
+    did: did:plc:7bwr7mioqql34n2mrqwqypbz
+  links:
+    web: https://handles.domi.zip/
+    git: https://github.com/SlickDomique/open-handles
+
+- handles:
+    - bsky.london
+  type: dns
+  auth: none
+  inviteOnly: false
+  paid: false
+  maintainer:
+    name: "@pfrazees.monster"
+    did: did:plc:p2cp5gopk7mgjegy6wadk3ep
+  links:
+    web: https://bsky.london/
+
+- handles:
+    - swifties.social
+  type: dns
+  auth: none
+  inviteOnly: false
+  paid: false
+  maintainer:
+    name: "@pfrazees.monster"
+    did: did:plc:p2cp5gopk7mgjegy6wadk3ep
+  links:
+    web: https://bsky.london/
+
+- handles:
+    - gwei.cz
+  type: dns
+  auth: external:matrix
+  inviteOnly: false
+  paid: false
+  maintainer:
+    name: "@gwei.cz"
+    did: did:plc:2bs6eyzyjkqb5gmqbfurccx2
+  links:
+    web: https://app.element.io/#/room/bluesky:gwei.cz
+    git: https://github.com/gweicz/atproto-handle-matrix-bot
+  
+- handles:
+    - ish.ninja
+  type: dns
+  auth: password
+  inviteOnly: false
+  paid: false
+  maintainer:
+    name: "@ishaanbedi.in"
+    did: did:plc:d5d2pdxfn2feddaqrxg337ta
+  links:
+    web: https://www.ish.ninja/
+    git: https://github.com/ishaanbedi/ish.ninja
+
+
+# ----- UNOFFICIAL PROVIDER (hack it!)
+
+- handles:
+    - deno.dev
+  type: http
+  unofficial: true
+  auth: multiple
+  maintainer:
+    name: Deno Land Inc.
+    web: https://deno.com/company
+  links:
+    web: https://deno.com/deploy
+
+- handles:
+    - messwithdns.com
+  type: dns
+  unofficial: true
+  auth: none
+  maintainer:
+    name: wizard zines
+    web: https://wizardzines.com/
+  links:
+    web: http://messwithdns.com/
+  note: |
+    only temporary, suitable for testing
