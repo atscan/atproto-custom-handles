@@ -17,40 +17,66 @@ if (!valid) {
 }
 
 function _bool(v) {
-  return v ? "✅" : "❌";
+  return v ? "✅" : (v === false ? "❌" : "-");
+}
+function _sbool(v) {
+  return v ? "✅" : "-";
 }
 function _person(v) {
-  return v.did ? `[${v.name}](https://bsky.app/profile/${v})` : v.name;
+  return v.did ? `[${v.name}](https://bsky.app/profile/${v.did})` : v.name;
 }
 function _links(v) {
   return Object.keys(v).map((k) => `[${k}](${v[k]})`).join(", ");
 }
 function _handles(v) {
-    return v.map(h => `\`.${h}\``).join("<br>")
+  return v.map((h) => `\`*.${h}\``).join("<br>");
 }
+function table(items, cols) {
+  const dummyLn = () => "|" + cols.map((c) => "---").join("|") + "|";
+  const ln = [
+    "| " + cols.map((c) => c[0]).join(" | ") + " |",
+    dummyLn(),
+  ];
+  for (const item of items) {
+    let map = (c) => {
+      const val = item[c[1]]?.trim ? item[c[1]].trim() : item[c[1]];
+      return c[2] ? c[2](val) : val;
+    };
+    ln.push("| " + cols.map(map).join(" | ") + " |");
+  }
+  return ln.join("\n");
+}
+
+let output = readme;
 
 const cols = [
   ["Handles", "handles", _handles],
-  ["Free?", "paid", _bool],
-  ["Open?", "inviteOnly", _bool],
+  ["Type", "type"],
+  ["PDS?", "isPds", _sbool],
+  ["Open?", "inviteOnly", (v) => _bool(!v)],
+  ["Free?", "paid", (v) => _bool(!v)],
   ["Auth", "auth"],
   ["Maintainer", "maintainer", _person],
   ["Links", "links", _links],
 ];
+output = output.replace(
+  "@@TABLE@@",
+  table(data.filter((i) => !i.unofficial), cols),
+);
 
-const ln = [
-  "| " + cols.map((c) => c[0]).join(" | ") + " |",
-  "| " + cols.map((c) => "---").join(" | ") + " |",
+const colsUo = [
+  ["Handles", "handles", _handles],
+  ["Type", "type"],
+  ["Open?", "inviteOnly", (v) => _bool(!v)],
+  ["Auth", "auth"],
+  ["Maintainer", "maintainer", _person],
+  ["Links", "links", _links],
+  ["Note", "note"],
 ];
-for (const item of data) {
-  let map = (c) => {
-    const val = item[c[1]];
-    return c[2] ? c[2](val) : val;
-  };
-  ln.push("| " + cols.map(map).join(" | ") + " |");
-}
-
-const output = readme.replace("@@TABLE@@", ln.join("\n"));
+output = output.replace(
+  "@@TABLE_UNOFFICIAL@@",
+  table(data.filter((i) => i.unofficial), colsUo),
+);
 
 await Deno.writeTextFile("./README.md", output);
 console.log("Done, README.md written");

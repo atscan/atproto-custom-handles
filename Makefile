@@ -14,3 +14,10 @@ build: ## Build all executables
 	deno run --allow-read --allow-write src/compile.js
 b:
 	@make build
+
+.PHONY: format
+format: ## Format the code
+	deno fmt src/*.js
+
+f:
+	@make format

@@ -7,8 +7,6 @@ items:
     - type
     - auth
     - maintainer
-    - inviteOnly
-    - paid
     - links
   properties:
     handles:
@@ -23,10 +21,13 @@ items:
       enum:
         - dns
         - http
+    unofficial:
+      type: boolean
     auth:
       type: string
       enum:
         - none
+        - multiple
         - password
         - 'external:discord'
         - 'external:matrix'
@@ -43,6 +44,8 @@ items:
         web:
           type: string
           format: uri
+    isPds:
+      type: boolean
     inviteOnly:
       type: boolean
     paid:
@@ -57,3 +60,5 @@ items:
         git:
           type: string
           format: uri
+    note:
+      type: string
