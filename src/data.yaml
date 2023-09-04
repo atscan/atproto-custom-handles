@@ -78,6 +78,27 @@
     web: https://www.ish.ninja/
     git: https://github.com/ishaanbedi/ish.ninja
 
+- handles:
+    - tired.io
+    - bsky.cool
+    - bsky.fish
+    - bsky.lgbt
+    - bsky.finance
+    - vibes.cool
+    - excuseme.wtf
+    - bluesky.zip
+    - skeets.online
+  type: dns
+  auth: password
+  inviteOnly: false
+  paid: false
+  maintainer:
+    name: "@darn.fish"
+    did: did:plc:7qw3ldjppmwmtjoak3egctdb
+  links:
+    web: https://skyna.me/
+    git: https://github.com/darnfish/skyname
+
 
 # ----- UNOFFICIAL PROVIDER (hack it!)
 
