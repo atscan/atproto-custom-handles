@@ -77,7 +77,20 @@
   links:
     web: https://www.ish.ninja/
     git: https://github.com/ishaanbedi/ish.ninja
-
+    
+- handles:
+    - grows.green
+    - knows.green
+  type: dns
+  auth: none
+  inviteOnly: false
+  isPds: false
+  paid: false
+  maintainer:
+    name: "@Adirondack.Green"
+    did: did:plc:r2jsoijmenfb67klwdc3hyav
+  links:
+    web: https://community.adirondack.green/
 
 # ----- UNOFFICIAL PROVIDER (hack it!)
 
